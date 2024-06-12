@@ -23,6 +23,7 @@ body{
 .produtos{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 80px;
     padding-top: 50px;
 }
@@ -44,12 +45,34 @@ body{
     display: flex;    
 }
 
-footer{
-    position: relative;
+footer {
+    position:relative;
     bottom: 0;
     width: 100%;
+    background-color: #f8f9fa !important;
+    color: black !important
 }
 
 .p{
     border-radius: 100px; 
+}
+
+.boxes{
+    height: 1000px;
+}
+
+.links{
+    display: flex;
+    gap: 25px;
+    margin-right: 15px;
+}
+
+.links a{
+    color: black;
+    text-decoration: none;
+}
+
+.links a:hover{
+    color: black;
+    text-decoration: none;
 }

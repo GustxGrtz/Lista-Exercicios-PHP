@@ -1,7 +1,7 @@
 <?php
 include_once('Connect.php');
 
-class Materia
+class Produto
 {
     private $id;
     private $nome;
@@ -13,11 +13,11 @@ class Materia
         $this->descricao = $descricao;
     }
 
-    public function cadastrarMateria()
+    public function cadastrarProduto()
     {
         try {
             $conn = Conexao::conectar();
-            $sql = $conn->prepare("INSERT INTO materias (nome, descricao) VALUES (:nome, :descricao)");
+            $sql = $conn->prepare("INSERT INTO produtos (nome, descricao) VALUES (:nome, :descricao)");
             $sql->bindParam(':nome', $this->nome);
             $sql->bindParam(':descricao', $this->descricao);
             $sql->execute();
@@ -26,7 +26,7 @@ class Materia
         }
     }
 
-    public function listarMaterias()
+    public function listarProdutos()
     {
         try {
             $conn = Conexao::conectar();
@@ -40,11 +40,11 @@ class Materia
         }
     }
 
-    public function excluirMateria($id)
+    public function excluirProduto($id)
     {
         try {
             $conn = Conexao::conectar();
-            $sql = $conn->prepare("DELETE FROM materias WHERE id = :id");
+            $sql = $conn->prepare("DELETE FROM produtos WHERE id = :id");
             $sql->bindParam(':id', $id);
             $sql->execute();
         } catch (PDOException $erro) {
@@ -52,11 +52,11 @@ class Materia
         }
     }
 
-    public function editarMateria($id, $nome, $descricao)
+    public function editarProduto($id, $nome, $descricao)
     {
         try {
             $conn = Conexao::conectar();
-            $sql = $conn->prepare("UPDATE materias SET nome = :nome, descricao = :descricao WHERE id = :id");
+            $sql = $conn->prepare("UPDATE produtos SET nome = :nome, descricao = :descricao WHERE id = :id");
             $sql->bindParam(':id', $id);
             $sql->bindParam(':nome', $nome);
             $sql->bindParam(':descricao', $descricao);
@@ -66,11 +66,11 @@ class Materia
         }
     }
 
-    public function getMateriaById($id)
+    public function getProdutoById($id)
     {
         try {
             $conn = Conexao::conectar();
-            $sql = $conn->prepare("SELECT id, nome, descricao FROM materias WHERE id = :id");
+            $sql = $conn->prepare("SELECT id, nome, descricao FROM Produtos WHERE id = :id");
             $sql->bindParam(':id', $id);
             $sql->execute();
             $result = $sql->fetch(PDO::FETCH_ASSOC);

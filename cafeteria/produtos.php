@@ -19,17 +19,9 @@
 //     return [];
 // }
 
-$materias = new Materia();
-$resultado = $materias->ListarMaterias();
+$produtos = new Produto();
+$resultado = $produtos->listarProdutos();
 
-// foreach ($resultado as $materia) {
-//   echo "<tr>";
-//   echo "<td>" . $materia['nome'] . "</td>";
-//   echo "<td>" . $materia['descricao'] . "</td>";
-//   echo "<td>" . $materia['preco'] . "</td>";
-//   echo "<td>" . $materia['img'] . "</td>";
-//   echo "</tr>";
-// }
 ?>
 
 <!DOCTYPE html>
@@ -42,44 +34,34 @@ $resultado = $materias->ListarMaterias();
 </head>
 <body>
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="logo.jpg" width="32" height="32" class="d-inline-block align-top icone" alt="">
-    Cafeteria
-  </a>
-  <a class="navbar-brand" href="#">
-    <a href="produtos.html">Nossos Produtos</a>
-  </a>
-</nav>
+        <a class="navbar-brand" href="index.html">
+        <img src="logo.jpg" width="32" height="32" class="d-inline-block align-top icone" alt="">
+        Cafeteria
+        </a>
 
-<?php
-// foreach ($resultado as $materia) {
-//   echo "<tr>";
-//   echo "<td>" . $materia['nome'] . "</td>";
-//   echo "<td>" . $materia['descricao'] . "</td>";
-//   echo "<td>" . $materia['preco'] . "</td>";
-//   echo "<img src='" . $materia['img'] . "'>";
-
-// }
-?>
-
-
+        <div class="links">
+            <a href="">Nossos produtos</a>
+            <a href="">Sobre</a>
+            <a href="">Contato</a>
+        </div>
+    </nav>
 
 <div class="content">
     <div class="row produtos">
     <?php
-foreach ($resultado as $materia) {
+foreach ($resultado as $produtos) {
+
   // echo "<tr>";
   // echo "<td>" . $materia['nome'] . "</td>";
   // echo "<td>" . $materia['descricao'] . "</td>";
   // echo "<td>" . $materia['preco'] . "</td>";
   // echo "<img src='" . $materia['img'] . "'>";
 
- 
       echo "<div class='p'>";
         echo "<div class='card' style='width: 18rem;'>";
-            echo "<img class='card-img-top' src='" . $materia['img'] . "'>";
+            echo "<img class='card-img-top' src='" . $produtos['img'] . "'>";
             echo "<div class='card-body'>";
-              echo "<p class='card-text'>" . $materia['nome'] . "<br> <br> ". $materia['descricao'] . "<br> <br> ". $materia['preco'] ."</p>";
+              echo "<p class='card-text'>" . $produtos['nome'] . "<br> <br> ". $produtos['descricao'] . "<br> <br> ". $produtos['preco'] ."</p>";
             echo "</div>";
           echo "</div>";
 
@@ -119,16 +101,13 @@ foreach ($resultado as $materia) {
   <br>
   <br>
   <br>
-  
+
 </body>
 
-    <footer class="text-center text-lg-start" style="background-color: darkgray;">
-  
-      <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2024 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">CafeteriaTop.com</a>
-      </div>
-    </footer>
-
+  <footer class="text-center text-lg-start">
+    <div class="ft" style="background-color: #f8f9fa !important;">
+      © 2024 Copyright: <a class="">Cafeteria.com</a>
+    </div>
+  </footer>
 
 </html>
