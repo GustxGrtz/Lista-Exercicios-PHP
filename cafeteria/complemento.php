@@ -1,9 +1,9 @@
 <?php
 include_once('Connect.php');
 
-include_once('view-produtos.php');
+// include_once('view-?.php');
 
-class Produto
+class Complemento
 {
     private $id;
     private $nome;
@@ -15,11 +15,11 @@ class Produto
         $this->descricao = $descricao;
     }
 
-    public function cadastrarProduto()
+    public function cadastrarComplemento()
     {
         try {
             $conn = Conexao::conectar();
-            $sql = $conn->prepare("INSERT INTO produtos (nome, descricao) VALUES (:nome, :descricao)");
+            $sql = $conn->prepare("INSERT INTO Complementos (nome, descricao) VALUES (:nome, :descricao)");
             $sql->bindParam(':nome', $this->nome);
             $sql->bindParam(':descricao', $this->descricao);
             $sql->execute();
@@ -28,11 +28,11 @@ class Produto
         }
     }
 
-    public function listarProdutos()
+    public function listarComplementos()
     {
         try {
             $conn = Conexao::conectar();
-            $sql = $conn->prepare("SELECT * FROM produtos");
+            $sql = $conn->prepare("SELECT * FROM Complementos");
             $sql->execute();
             $result = $sql->fetchAll(PDO::FETCH_ASSOC);
             return $result;
@@ -42,11 +42,11 @@ class Produto
         }
     }
 
-    public function excluirProduto($id)
+    public function excluirComplemento($id)
     {
         try {
             $conn = Conexao::conectar();
-            $sql = $conn->prepare("DELETE FROM produtos WHERE id = :id");
+            $sql = $conn->prepare("DELETE FROM Complementos WHERE id = :id");
             $sql->bindParam(':id', $id);
             $sql->execute();
         } catch (PDOException $erro) {
@@ -54,11 +54,11 @@ class Produto
         }
     }
 
-    public function editarProduto($id, $nome, $descricao)
+    public function editarComplemento($id, $nome, $descricao)
     {
         try {
             $conn = Conexao::conectar();
-            $sql = $conn->prepare("UPDATE produtos SET nome = :nome, descricao = :descricao WHERE id = :id");
+            $sql = $conn->prepare("UPDATE Complementos SET nome = :nome, descricao = :descricao WHERE id = :id");
             $sql->bindParam(':id', $id);
             $sql->bindParam(':nome', $nome);
             $sql->bindParam(':descricao', $descricao);
@@ -68,11 +68,11 @@ class Produto
         }
     }
 
-    public function getProdutoById($id)
+    public function getComplementoById($id)
     {
         try {
             $conn = Conexao::conectar();
-            $sql = $conn->prepare("SELECT id, nome, descricao FROM Produtos WHERE id = :id");
+            $sql = $conn->prepare("SELECT id, nome, descricao FROM Complementos WHERE id = :id");
             $sql->bindParam(':id', $id);
             $sql->execute();
             $result = $sql->fetch(PDO::FETCH_ASSOC);

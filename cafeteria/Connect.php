@@ -19,8 +19,6 @@ class Conexao{
     }
 }
 
-
-
     // $servidor = "localhost";
 	// $usuario = "root";
 	// $senha = "positivo";
